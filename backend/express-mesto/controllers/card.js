@@ -2,7 +2,7 @@
 /* eslint-disable linebreak-style */
 const BadRequestError = require('../utils/BadRequestError');
 const NotFoundError = require('../utils/NotFoundError');
-const ForbiddenError = require('../utils/ForBiddenError');
+const ForbiddenError = require('../utils/ForbiddenError');
 
 const Card = require('../models/card');
 
