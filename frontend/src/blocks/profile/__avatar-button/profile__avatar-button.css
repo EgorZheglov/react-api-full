@@ -1,0 +1,19 @@
+.profile__avatar-button{
+    position:relative;
+    margin-right:30px;
+    background-color: black;
+    border-style: none;
+    cursor: pointer;
+    z-index: 0;
+}
+
+@media (max-width: 760px) {
+    .profile__avatar-button{
+      margin-right:auto;
+      margin-left: auto;
+    }
+}
+
+
+
+

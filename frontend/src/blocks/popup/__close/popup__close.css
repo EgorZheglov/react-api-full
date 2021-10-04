@@ -1,0 +1,26 @@
+.popup__close{
+    position: absolute;
+    top:-48.25px;
+    right:-48.25px;
+    width:40px;
+    height:40px;
+    background-image: url(../../../images/Close-Icon.svg);
+    background-color: rgba(255, 234, 13, 0);
+    border:none;
+    background-position: center;
+    transition: opacity linear 1s;
+}
+
+.popup__close:hover{
+    opacity:0.6;
+}
+
+@media (max-width: 425px){
+    .popup__close{
+        width:25px;
+        height:25px;
+        right:0px;
+        background-image: url(../../../images/Close_Icon320.svg);/*Визуально просто разница не очень заметна*/
+    }
+}
+

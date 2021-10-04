@@ -1,0 +1,10 @@
+.popup__save-button_disabled{
+    opacity:20%;/**Не нашел в макете необзодимыз значений**/
+    color:black;
+    background-color: white;
+    border: 1px solid black;
+}
+
+.popup__save-button_disabled:hover{
+    opacity:20%;
+}

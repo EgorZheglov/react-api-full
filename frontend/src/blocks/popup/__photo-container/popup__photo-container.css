@@ -1,0 +1,10 @@
+.popup__photo-container{
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 90px;
+    position: relative;
+    display: flex;
+    width: min-content;
+    max-width:75vw;
+    max-height:75vh;
+}

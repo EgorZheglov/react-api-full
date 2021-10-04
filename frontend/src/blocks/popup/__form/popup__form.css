@@ -1,0 +1,9 @@
+.popup__form{
+    width:calc(100% - 72px);
+}
+
+@media (max-width: 550px){
+    .popup__form{
+        width:calc(100% - 44px);
+    }
+}

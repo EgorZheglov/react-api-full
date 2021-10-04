@@ -1,0 +1,12 @@
+.profile__title{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    max-width: 336px;
+}
+
+@media (max-width: 760px) {
+.profile__title{
+    margin-top: 26px;
+}
+}

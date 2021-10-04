@@ -1,0 +1,17 @@
+.profile__img{
+    width:120px;
+    height: 120px;
+    border-radius: 300px;
+    margin-top: 0;
+    align-self: flex-start;
+    position: relative;
+    z-index: -1;
+}
+
+
+@media (max-width: 760px) {
+    .profile__img{
+      margin-right:0px;
+      align-self: center;
+    }
+}

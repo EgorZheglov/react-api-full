@@ -1,0 +1,11 @@
+.profile__cross{
+    width:22px;
+    height:22px;
+}
+
+@media (max-width: 425px) {
+    .profile__cross{
+        width:16px;
+        height:16px;
+    }
+}

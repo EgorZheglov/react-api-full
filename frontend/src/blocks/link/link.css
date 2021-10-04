@@ -1,0 +1,11 @@
+.link{
+    transition:opacity 1s linear;
+    border: none;
+    font: inherit;
+    color: inherit;
+    background-color: transparent;
+    outline: none;
+    cursor: pointer;    
+  }
+
+ 

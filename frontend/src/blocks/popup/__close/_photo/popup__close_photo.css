@@ -1,0 +1,12 @@
+.popup__close_photo{
+    position: absolute;
+    top:-50px;
+    right:-45px;
+}
+
+@media (max-width: 550px){
+    .popup__close_photo{
+        top:-40px;
+        right:0;
+    }
+}

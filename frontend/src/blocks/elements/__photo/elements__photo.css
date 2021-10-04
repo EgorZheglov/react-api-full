@@ -1,0 +1,11 @@
+.elements__photo{
+    width:100%;
+    min-height:282px;
+    height:282px;
+    background-color: black;
+    transition:opacity 1s ease-out;
+}
+
+.elements__photo:hover{
+    opacity:0.6;
+}

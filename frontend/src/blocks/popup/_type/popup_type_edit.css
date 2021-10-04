@@ -1,0 +1,5 @@
+.popup_type_edit{
+    visibility: hidden;
+    transition: visibility 0s, opacity 0.5s linear;
+    opacity: 0;
+}

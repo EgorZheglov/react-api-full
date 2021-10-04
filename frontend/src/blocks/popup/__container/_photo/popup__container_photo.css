@@ -1,0 +1,8 @@
+.popup__container_photo{
+    width:430px;
+    max-width:75vw;
+    height: min-content;
+    max-height:75vh;
+    border-radius: unset;
+}
+
