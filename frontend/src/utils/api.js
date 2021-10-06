@@ -29,7 +29,6 @@ class Api {
         .then(this._checkResponse)
     }
 
-
     getInitialCards(){
       //получаем карточки, загруженные на сервер
       return fetch(`${this._url}/cards`,{
@@ -101,7 +100,7 @@ class Api {
 
 
   const api = new Api({
-    baseUrl: 'http://localhost:3001',
+    baseUrl: 'http://api.mesto.zheglov.nomoredomains.monster',
     headers: {
       'Content-Type': 'application/json'
     }

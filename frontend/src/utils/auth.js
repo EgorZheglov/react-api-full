@@ -52,6 +52,6 @@ class SignApi{
   }
 
 
-  const signApi = new SignApi('htttp//api.mesto.zheglov.nomoredomains.monster');
+  const signApi = new SignApi('http://api.mesto.zheglov.nomoredomains.monster');
 
   export default signApi
