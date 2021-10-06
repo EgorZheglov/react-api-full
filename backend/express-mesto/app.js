@@ -20,7 +20,7 @@ const {
 const corsOptions = {
   origin: [
     'http://mesto.zheglov.nomoredomains.monster',
-    'http://www.mesto.zheglov.nomoredomains.monster',
+    'https://mesto.zheglov.nomoredomains.monster',
     'http://localhost:3000',
     'http://localhost:3001',
   ],
