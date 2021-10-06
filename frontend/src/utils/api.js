@@ -12,7 +12,15 @@ class Api {
         return Promise.reject(res.status)
       }
 
+    setToken(token){
+      if(token){
+        this._headers.authorization = `Bearer ${token}`;
+      }else{
+        this._headers.authorization = null;
+      }
+    }
 
+    
     getUserData(){
       //Получаем информацию пользователе с сервера.
         return fetch(`${this._url}/users/me`,{
@@ -33,7 +41,7 @@ class Api {
 
     toggleLike(id, method){
       //Сообщаем серверу, что лайк поставлен
-      return fetch(`${this._url}/cards/likes/${id}`, {
+      return fetch(`${this._url}/cards/${id}/likes`, {
         method: `${method}`,
         headers: this._headers,
       })
@@ -65,6 +73,7 @@ class Api {
 
     sendUserData(name, about){
       //Отправляем измененные данные на сервер.
+      console.log(this._headers)
       return fetch(`${this._url}/users/me`, {
         method: 'PATCH',
         headers: this._headers,
@@ -92,9 +101,8 @@ class Api {
 
 
   const api = new Api({
-    baseUrl: 'https://mesto.nomoreparties.co/v1/cohort-25',
+    baseUrl: 'http://localhost:3001',
     headers: {
-      authorization: '2245779c-6198-47bc-8dae-135ddf28bc0e',
       'Content-Type': 'application/json'
     }
   });

@@ -1,5 +1,6 @@
 const express = require('express');
 const { errors } = require('celebrate');
+const cors = require('cors');
 const mongoose = require('mongoose');
 const NotFoundError = require('./utils/NotFoundError');
 const auth = require('./middlewares/auth');
@@ -16,6 +17,20 @@ const {
   validateUsersPost,
 } = require('./middlewares/inputRequestValidation');
 
+const corsOptions = {
+  origin: [
+    'http://mesto.zheglov.nomoredomains.monster',
+    'http://www.mesto.zheglov.nomoredomains.monster',
+    'http://localhost:3000',
+    'http://localhost:3001',
+  ],
+  methods: ['GET', 'PUT', 'POST', 'PATCH', 'DELETE', 'HEAD'],
+  preflightContinue: false,
+  optionsSuccessStatus: 204,
+  allowedHeaders: ['Content-Type', 'Authorization', 'Origin', 'Accept'],
+  credentials: true,
+};
+
 const { port = 3000 } = process.env;
 const app = express();
 
@@ -25,6 +40,8 @@ app.use(express.json());
 mongoose.connect('mongodb://localhost:27017/mestodb')
   // eslint-disable-next-line no-console
   .catch((err) => console.log(err));
+
+app.use(cors(corsOptions));
 
 app.use(requestLogger);
 

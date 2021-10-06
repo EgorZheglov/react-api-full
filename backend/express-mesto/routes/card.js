@@ -16,7 +16,7 @@ const {
 card.get('/cards', getAllCards);
 card.post('/cards', validateCardPost, createCard);
 card.delete('/cards/:id', validateParams, deleteCard);
-card.put('/cards/:cardId/likes', validateParams, likeCard);
-card.delete('/cards/:cardId/likes', validateParams, dislikeCard);
+card.put('/cards/:cardId/likes', likeCard);
+card.delete('/cards/:cardId/likes', dislikeCard);
 
 module.exports = card;

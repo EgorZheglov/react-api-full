@@ -25,7 +25,7 @@ function App() {
   const [isEditAvatarPopupOpen, setAvatarPopup] = React.useState(false);
   const [isImagePopupOpen, setImagePopup] = React.useState(false);
   const [selectedCard, setSelectedCard] = React.useState(null);
-  const [currentUser, setUser] = React.useState({name:'', about: ''})
+  const [currentUser, setUser] = React.useState({name:'', about: '', _id: ''});
   const [initialCards, setCards] = React.useState(null);
   const [loggedIn, setLogIn] = React.useState(false);
   const [isRegistrationPopupOpen, setRegistrationPopup] = React.useState(false);
@@ -38,8 +38,6 @@ function App() {
   React.useEffect(()=>{
     const jwt = localStorage.getItem('jwt')
 
-    loadData();
-
     if(!jwt){
       setIsLoading(false)
       return;
@@ -48,11 +46,14 @@ function App() {
     signApi.tokenCheck(jwt)
     .then(res => {
 
-      setEmail(res.data.email)
+      api.setToken(jwt);
+      loadData();
 
-      setLogIn(true)
+      setEmail(res.email)
 
-      setIsLoading(false)
+      setLogIn(true);
+
+      setIsLoading(false);
     })
     .catch(err =>{
       console.log(`Ошибка проверки токена!:${err}`)
@@ -74,10 +75,10 @@ function App() {
 
   function handleCardLike(card) {
     // Снова проверяем, есть ли уже лайк на этой карточке
-    const isLiked = card.likes.some(like => like._id === currentUser._id);
+    const isLiked = card.likes.some(like => like === currentUser._id);
     
     const method = isLiked ? 'DELETE' : 'PUT';
-
+  
     api.toggleLike(card._id, method)
       .then((newCard) => {
          setCards((state) => {
@@ -92,8 +93,9 @@ function App() {
 
   function handleLogOut(){
     history.push('/sign-in');
-    setLogIn(false)
+    setLogIn(false);
 
+    api.setToken(null);
     localStorage.removeItem('jwt')
   }
 
@@ -114,7 +116,6 @@ function App() {
     })
   }
 
-
   function loadData(){
     api.getUserData()
       .then(res =>{
@@ -126,7 +127,7 @@ function App() {
 
       api.getInitialCards()
       .then(res =>{
-        setCards(res)
+        setCards(res.reverse()); //Массив приходит в обратном порядке, поэтому применяем Reverse
       })
       .catch(err => {
         console.log(`Ошибка: ${err}`)
@@ -141,8 +142,9 @@ function App() {
 
       setEmail(email);
 
+      api.setToken(res.token);
       localStorage.setItem('jwt', res.token);
-
+      loadData();
       history.push('/');
     })
     .catch(err => {

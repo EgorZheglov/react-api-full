@@ -92,7 +92,7 @@ const updateAvatar = (req, res, next) => User.findByIdAndUpdate(
   });
 
 const updateUser = (req, res, next) => User.findByIdAndUpdate(
-  req.user.id,
+  req.user._id,
   { ...req.body },
   {
     new: true,
