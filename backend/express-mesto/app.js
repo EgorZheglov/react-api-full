@@ -45,9 +45,9 @@ app.use(cors(corsOptions));
 
 app.use(requestLogger);
 
-app.get('/crash-test', () => {
+app.get('/crash-test', (req, res, next) => {
   setTimeout(() => {
-    throw new Error('Сервер сейчас упадёт');
+    next(new Error('Сервер сейчас упадёт'));
   }, 0);
 }); // crash-test сервера. pm2
 

@@ -5,6 +5,9 @@ const BadRequestError = require('../utils/BadRequestError');
 const AuthorizationError = require('../utils/AuthorizationError');
 const NotFoundError = require('../utils/NotFoundError');
 const AlreadyRegistredError = require('../utils/AlreadyRegistredError');
+require('dotenv').config();
+
+const { NODE_ENV, JWT_SECRET } = process.env;
 
 const User = require('../models/user');
 
@@ -25,7 +28,7 @@ const login = (req, res, next) => {
           }
           const token = jwt.sign(
             { _id: user.id },
-            'secret',
+            NODE_ENV === 'production' ? JWT_SECRET : 'dev-secret',
             { expiresIn: '7d' },
           );
 
