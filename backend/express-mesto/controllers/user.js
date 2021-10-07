@@ -81,6 +81,7 @@ const updateAvatar = (req, res, next) => User.findByIdAndUpdate(
   } else {
     res.status(200).send({
       name: user.name,
+      about: user.about,
       avatar: user.avatar,
       email: user.email,
     });
