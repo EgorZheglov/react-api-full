@@ -36,9 +36,7 @@ function App() {
   const history = useHistory();
 
   React.useEffect(()=>{
-    const jwt = localStorage.getItem('jwt')
-
-    console.log(jwt);
+    const jwt = localStorage.getItem('jwt');
 
     if(!jwt){
       setIsLoading(false)
