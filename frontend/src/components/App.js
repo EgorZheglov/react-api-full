@@ -38,6 +38,8 @@ function App() {
   React.useEffect(()=>{
     const jwt = localStorage.getItem('jwt')
 
+    console.log(jwt);
+
     if(!jwt){
       setIsLoading(false)
       return;
@@ -56,7 +58,8 @@ function App() {
       setIsLoading(false);
     })
     .catch(err =>{
-      console.log(`Ошибка проверки токена!:${err}`)
+      console.log(`Ошибка проверки токена!:${err}`);
+      handleLogOut(); //Если с токеном что-то не так - имитируем выход из приложения.
     })
 
   },[])

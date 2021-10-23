@@ -6,6 +6,8 @@
     border-style:none;
     background-color:white;
     background-image: url(../../../../images/like_active.svg);
+    background-position: center;
+    background-repeat: no-repeat;
     transition: opacity linear 1s
 }
 
